@@ -52,6 +52,14 @@
         success: function( response ){
           $('#paginate-spinner').remove();
           paginated.append(response);
+          
+          //Reemplazar imagenes rotas, la funcion reemplazar viene de los 
+          //assets imageReplace
+          var imagenes = [];
+          imagenes = document.getElementsByTagName('img');
+          for (i = 0; i < imagenes.length; i++) {
+              reemplazar(imagenes[i]);
+          }
           if( _.isFunction(options.success) )
             options.success.apply(this);
         }
